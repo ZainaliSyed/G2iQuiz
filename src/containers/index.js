@@ -1,4 +1,5 @@
 // @flow
-import Login from "./Login";
+import Quiz from "./Quiz";
 import Empty from "./Empty";
-export { Login, Empty };
+import Home from "./Home";
+export { Quiz, Home, Empty };

@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import React, { Component } from "react";
 import { View, Image, PermissionsAndroid, Alert } from "react-native";
 import { Actions } from "react-native-router-flux";
-import { Images, Metrics } from "../../theme";
-import { Text, Loading } from "../../components";
+import { Metrics } from "../../theme";
+import { Text } from "../../components";
 import styles from "./styles";
 
-class Login extends Component {
+class Quiz extends Component {
   componentDidMount() {
-    alert("Login componentDidMount");
+    // alert("Login componentDidMount");
   }
 
   componentWillUnmount() {}
@@ -23,10 +23,10 @@ class Login extends Component {
   }
 }
 
-// const mapStateToProps = state => ({
-//   networkInfo: state.networkInfo
-// });
+const mapStateToProps = state => ({
+  networkInfo: state.networkInfo
+});
 
 const actions = {};
 
-export default Login;
+export default Quiz;

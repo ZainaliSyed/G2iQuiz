@@ -9,11 +9,10 @@ import {
   Actions,
   ActionConst
 } from "react-native-router-flux";
-import { Login, Empty } from "../containers";
+import { Quiz, Empty, Home } from "../containers";
 
 import styles from "./styles";
-import { Images, Colors } from "../theme";
-// import { TabIcon } from "../components";
+import { Colors } from "../theme";
 
 const navigator = Actions.create(
   <Stack
@@ -24,7 +23,8 @@ const navigator = Actions.create(
     titleStyle={styles.title}
     headerStyle={styles.header}
   >
-    <Scene initial key="login" component={Login} />
+    <Scene key="home" component={Home} />
+    <Scene initial key="quiz" component={Quiz} />
   </Stack>
 );
 
