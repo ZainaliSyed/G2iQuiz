@@ -6,6 +6,28 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: Colors.background.primary
-    // padding: Metrics.doubleBaseMargin,
+  },
+  questionContainer: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "black",
+    borderWidth: 1,
+    margin: Metrics.doubleBaseMargin,
+    backgroundColor: "red"
+  },
+  buttonContainer: {
+    // flex: 1,
+    borderColor: "black",
+    borderWidth: 1,
+    borderRadius: Metrics.doubleBaseMargin,
+    marginHorizontal: Metrics.baseMargin,
+    padding: Metrics.doubleBaseMargin,
+    backgroundColor: "blue"
+  },
+  heading: {
+    fontWeight: "bold",
+    color: "black",
+    fontSize: 20
   }
 });

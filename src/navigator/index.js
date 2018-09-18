@@ -23,8 +23,8 @@ const navigator = Actions.create(
     titleStyle={styles.title}
     headerStyle={styles.header}
   >
-    <Scene key="home" component={Home} />
-    <Scene initial key="quiz" component={Quiz} />
+    <Scene initial key="home" component={Home} />
+    <Scene key="quiz" component={Quiz} />
   </Stack>
 );
 

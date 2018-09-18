@@ -12,9 +12,33 @@ import { Actions } from "react-native-router-flux";
 import { Images, Metrics } from "../../theme";
 import { Text } from "../../components";
 import styles from "./styles";
+import { success } from "../../actions/Quiz";
 
 class Home extends Component {
-  componentDidMount() {}
+  componentDidMount() {
+    // this.props.request(payload);
+
+    fetch(
+      "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean",
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json"
+        }
+      }
+    )
+      .then(response => response.json())
+      .then(responseJson => {
+        this.setState({ loading: true });
+        console.log("responseJson", responseJson.results);
+        this.props.success(responseJson.results);
+        // return responseJson.movies;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }
   render() {
     return (
       <View style={styles.container}>
@@ -34,7 +58,7 @@ class Home extends Component {
             styles.textContainer,
             { justifyContent: "flex-end", marginBottom: 10 }
           ]}
-          onPress={() => Actions.quiz()}
+          onPress={() => Actions.quiz({ quizData: this.props.quiz.data , quiz : this.props.quiz })}
         >
           <Text style={styles.text}>Begin</Text>
         </TouchableOpacity>
@@ -43,6 +67,13 @@ class Home extends Component {
   }
 }
 
-const actions = {};
+const mapStateToProps = state => ({
+  networkInfo: state.networkInfo,
+  quiz: state.quiz
+});
 
-export default Home;
+const actions = { success };
+export default connect(
+  mapStateToProps,
+  actions
+)(Home);

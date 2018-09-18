@@ -1,4 +1,4 @@
-import Util from "@util";
+import Util from "../../util";
 import React from "react";
 import PropTypes from "prop-types";
 import {

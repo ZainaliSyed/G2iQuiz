@@ -1,9 +1,10 @@
 import { take, put, call, fork } from "redux-saga/effects";
 import ApiSauce from "../services/ApiSauce";
-import { API_QUIZ } from "../config/WebService";
+import { BASE_URL } from "../config/WebService";
+import { success } from "../actions/Quiz";
 
-function callRequest(data) {
-  return ApiSauce.get(API_QUIZ, data);
+function callRequest(BASE_URL, data) {
+  return ApiSauce.get(BASE_URL, data);
 }
 
 function* watchRequest() {

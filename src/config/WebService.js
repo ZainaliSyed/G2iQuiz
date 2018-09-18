@@ -1,4 +1,4 @@
-export const API_QUIZ = "https://opentdb.com/api.php";
+export const BASE_URL = "https://opentdb.com/api.php";
 // https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean
 
 export const API_TIMEOUT = 30000;
