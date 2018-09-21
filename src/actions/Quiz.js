@@ -1,10 +1,11 @@
 // @flow
-
 import {
   QUIZ,
   INCREASE_QUESTION,
   CORRECT_ANSWER,
-  WRONG_ANSWER
+  WRONG_ANSWER,
+  PLAY_AGAIN,
+  QUIZ_RESULT
 } from "./ActionTypes";
 
 export function request() {
@@ -43,5 +44,18 @@ export function increaseCorrectAnswer() {
 export function increaseWrongAnswer() {
   return {
     type: WRONG_ANSWER
+  };
+}
+
+export function playAgain() {
+  return {
+    type: PLAY_AGAIN
+  };
+}
+
+export function quizResult(resultData: Object) {
+  return {
+    resultData,
+    type: QUIZ_RESULT
   };
 }

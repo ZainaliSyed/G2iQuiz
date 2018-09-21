@@ -9,7 +9,7 @@ import {
   Actions,
   ActionConst
 } from "react-native-router-flux";
-import { Quiz, Empty, Home } from "../containers";
+import { Quiz, Home, Winning } from "../containers";
 
 import styles from "./styles";
 import { Colors } from "../theme";
@@ -25,6 +25,7 @@ const navigator = Actions.create(
   >
     <Scene initial key="home" component={Home} />
     <Scene key="quiz" component={Quiz} />
+    <Scene key="winning" component={Winning} />
   </Stack>
 );
 

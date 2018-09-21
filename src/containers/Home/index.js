@@ -16,8 +16,8 @@ import { success } from "../../actions/Quiz";
 
 class Home extends Component {
   componentDidMount() {
-    // this.props.request(payload);
-
+    // this.props.success(result);
+    // alert("DidMount");
     fetch(
       "https://opentdb.com/api.php?amount=10&difficulty=hard&type=boolean",
       {
@@ -33,6 +33,7 @@ class Home extends Component {
         this.setState({ loading: true });
         console.log("responseJson", responseJson.results);
         this.props.success(responseJson.results);
+        // this.props.success(result);
         // return responseJson.movies;
       })
       .catch(error => {
@@ -58,7 +59,12 @@ class Home extends Component {
             styles.textContainer,
             { justifyContent: "flex-end", marginBottom: 10 }
           ]}
-          onPress={() => Actions.quiz({ quizData: this.props.quiz.data , quiz : this.props.quiz })}
+          onPress={() =>
+            Actions.quiz({
+              quizData: this.props.quiz.data,
+              quiz: this.props.quiz
+            })
+          }
         >
           <Text style={styles.text}>Begin</Text>
         </TouchableOpacity>

@@ -13,8 +13,8 @@ export default StyleSheet.create({
     alignItems: "center",
     borderColor: "black",
     borderWidth: 1,
-    margin: Metrics.doubleBaseMargin,
-    backgroundColor: "red"
+    margin: Metrics.doubleBaseMargin
+    // backgroundColor: "red"
   },
   buttonContainer: {
     // flex: 1,
@@ -29,5 +29,14 @@ export default StyleSheet.create({
     fontWeight: "bold",
     color: "black",
     fontSize: 20
+  },
+  renderItem: {
+    flex: 2,
+    justifyContent: "center",
+    alignItems: "center",
+    borderColor: "black",
+    borderWidth: 1,
+    margin: 50
+    // backgroundColor: "red"
   }
 });

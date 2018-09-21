@@ -12,12 +12,9 @@ import {
   ERROR_SOMETHING_WENT_WRONG,
   ERROR_NETWORK_NOT_AVAILABLE
 } from "../config/WebService";
-//todo zain
+
 const api = create({
   baseURL: BASE_URL,
-  // headers: {
-  //   Authorization: `Basic ${base64.encode(`${API_USER_NAME}:${API_PASSWORD}`)}`
-  // },
   timeout: API_TIMEOUT
 });
 

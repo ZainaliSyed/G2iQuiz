@@ -23,27 +23,7 @@ const logger = createLogger({
 export default function configureStore(onComplete: Function) {
   const engine = filter(
     createEngine("AppTree"),
-    [
-      "whitelisted-key",
-      ["user", "data"],
-      ["timeline", "data"],
-      ["myEvent", "data"],
-      ["userDataGet", "data"],
-      ["userStatusUpdate", "userStatus"],
-      ["going", "data"],
-      ["reportEvent", "data"],
-      ["inviteFriends", "data"],
-      ["notifications", "data"],
-      ["friendDelete", "data"],
-      ["myFriends", "data"],
-      ["myEvents", "data"],
-      ["userFriends", "data"],
-      ["userEvents", "data"],
-      ["nearByEvents", "data"],
-      ["eventComments", "data"],
-      ["events", "data"],
-      ["deviceLocation", "location"]
-    ],
+    ["whitelisted-key", ["user", "data"]],
     []
   );
   const storeMiddleware = storage.createMiddleware(engine);

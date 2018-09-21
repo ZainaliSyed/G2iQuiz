@@ -9,9 +9,10 @@ const initialState = Immutable({
   questionNumber: 0,
   correctAnswer: 0,
   wrongAnswer: 0,
-  data: []
+  data: [],
+  quizResult: []
 });
-
+let resultArray = [];
 export default (state: Object = initialState, action: Object) => {
   switch (action.type) {
     case types.INCREASE_QUESTION:
@@ -26,9 +27,7 @@ export default (state: Object = initialState, action: Object) => {
 
     case types.CORRECT_ANSWER:
       correctAnswer = _.cloneDeep(state.correctAnswer);
-      console.log("CORRECT_ANSWER 1 : ", correctAnswer);
       correctAnswer = correctAnswer + 1;
-      console.log("CORRECT_ANSWER 2 : ", correctAnswer);
       return Immutable.merge(state, {
         isFetching: false,
         failure: false,
@@ -38,16 +37,20 @@ export default (state: Object = initialState, action: Object) => {
 
     case types.WRONG_ANSWER:
       wrongAnswer = _.cloneDeep(state.wrongAnswer);
-      console.log("WRONG_ANSWER ***** 1 : ", wrongAnswer);
       wrongAnswer = wrongAnswer + 1;
-      console.log("WRONG_ANSWER ***** 2 : ", wrongAnswer);
       return Immutable.merge(state, {
         isFetching: false,
         failure: false,
         errorMessage: "",
         wrongAnswer: wrongAnswer
       });
-
+    case types.QUIZ_RESULT:
+      arrayResult = resultArray.push(action.resultData);
+      return Immutable.merge(state, {
+        failure: false,
+        errorMessage: "",
+        quizResult: resultArray
+      });
     case types.QUIZ.REQUEST:
       return Immutable.merge(state, {
         isFetching: true
@@ -65,6 +68,9 @@ export default (state: Object = initialState, action: Object) => {
         failure: true,
         errorMessage: action.errorMessage
       });
+    case types.PLAY_AGAIN:
+      return initialState;
+
     default:
       return state;
   }
